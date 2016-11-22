@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>
+   Sample application
+  </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">         </script>
+     <script src="angular.min.js">
+     </script>
+      <script>
+        angular.module('HelloApplication', [])
+        .controller('HWController', function($scope) {
+        $scope.message = "Hello World!!! This is my Sample AngularJS application";
+          });
+      </script>
+ <head>
+ <body>
+  <div ng-app="HelloApplication">
+    <div ng-controller="HWController">
+     <h1>{{message}}</h1>
+    </div>
+  </div>
+ </body>
+</html>
