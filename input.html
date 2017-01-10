@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>jquery populate values</title>
+<style></style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>
+ 
+
+
+</head>
+<body>
+<h1>populating values using jquery</h1>
+<br>
+<p>Enter a customer name</p>
+<form action="" method="post" >
+<input type="text" placeholder="name" id="customerautocopmplete" class="ui-autocomplete" autocomplete="off" />
+</form>
+
+<!-- logic for auto complete -->
+<script  language="Javascript" type="text/javascript">
+$(document).ready(function($){
+$('#customerautocomplete').autocomplete({
+source:'suggest_name.php',
+minLength:2
+select:function(event,ui){
+var code=ui.item.id;
+
+if(code!=''){
+location.href="/webcautor/auto-complete/invoice.php?customercode=" +code;
+}
+ },
+
+html:true,
+open:function(event,ui){
+$(.auto-complete).css(z-index,1000);
+}
+
+});
+
+
+
+});
+
+
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

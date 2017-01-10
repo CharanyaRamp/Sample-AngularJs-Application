@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <title>
+   Weather Forecast
+   </title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+</script>
+<style>
+body{
+background-color:#70db70;
+
+}
+.weather{
+background-color: #70db70;
+text-align:center;
+padding-top: 3cm;
+}
+
+</style>
+<script>
+$(document).ready(function(){
+ $("button").click(function(){
+            var number= $("#Zip").val();
+        $.get("Weather_data.json", function(obj){
+          $.each(obj,function(key,value) {
+		          if(number===value.zipcode)
+                {
+			  $("#row").html("<td style='color:Blue'>"+value.Temperature+"</td><br>");
+			  $("#row").append("<td style='color:pink'>"+value.state+"</td>");
+			  }
+			  
+		  }); 
+        
+    });
+});
+});
+
+</script>
+
+</head>
+
+<body>
+<h1 style="color:#ff4d94;text-align:center;padding-top:3cm;">Weather Forecast</h1>
+
+
+
+<div class="weather">
+<b> Enter your Zipcode</b>
+
+
+<input type="number" placeholder="75006" id="Zip"/>
+
+
+
+
+
+<button>Forecast weather</button>
+
+
+<table>
+<tr id="row"></tr>
+</table>
+</div>
+</body>
+</html>
